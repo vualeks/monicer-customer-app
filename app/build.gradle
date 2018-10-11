@@ -33,7 +33,7 @@ android {
         debug {
             minifyEnabled false
             applicationIdSuffix ".debug"
-            resValue "string", "app_name", "Monicer Test Version"
+            resValue "string", "app_name", "Monicer"
             resValue "string", "test_username", ""
             resValue "string", "test_password", ""
         }
