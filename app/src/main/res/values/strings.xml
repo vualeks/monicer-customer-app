@@ -9,4 +9,7 @@
     <string name="pay_with_credit">Pay with credit</string>
     <string name="pay_with_cash">Pay with cash</string>
     <string name="cash_payment_description">Pay with cash Let the cashier scan this code when paying with cash</string>
+  <string name="balance">Balance</string>
+  <string name="cashback">Cashback</string>
+  <string name="amount">Amount</string>
 </resources>
