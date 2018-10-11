@@ -1,21 +1,15 @@
 package me.hackathon.monicercustomerapp.vo
 
-import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-class Owner {
+data class Owner(
 
-  @SerializedName("id")
-  @Expose
-  var id: Int? = null
-  @SerializedName("name")
-  @Expose
-  var name: String? = null
-  @SerializedName("email")
-  @Expose
-  var email: String? = null
-  @SerializedName("pay_code")
-  @Expose
-  var pay_code: String? = null
-
-}
+        @SerializedName("id")
+        var id: Int,
+        @SerializedName("name")
+        var name: String,
+        @SerializedName("email")
+        var email: String,
+        @SerializedName("pay_code")
+        var pay_code: String
+)
