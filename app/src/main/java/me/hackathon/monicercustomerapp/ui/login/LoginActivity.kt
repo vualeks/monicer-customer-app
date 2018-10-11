@@ -12,10 +12,6 @@ import dagger.android.support.DaggerAppCompatActivity
 import kotlinx.android.synthetic.main.activity_login.*
 import me.hackathon.monicercustomerapp.BuildConfig
 import me.hackathon.monicercustomerapp.R
-import me.hackathon.monicercustomerapp.R.id.login_button
-import me.hackathon.monicercustomerapp.R.id.login_email_edit
-import me.hackathon.monicercustomerapp.R.id.login_password_edit
-import me.hackathon.monicercustomerapp.R.id.login_root
 import me.hackathon.monicercustomerapp.databinding.ActivityLoginBinding
 import me.hackathon.monicercustomerapp.ui.main.MainActivity
 import me.hackathon.monicercustomerapp.util.CustomViewModelFactory

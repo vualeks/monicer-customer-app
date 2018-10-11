@@ -3,8 +3,7 @@ package me.hackathon.monicercustomerapp.ui.main
 import android.os.Bundle
 import androidx.viewpager.widget.ViewPager
 import dagger.android.support.DaggerAppCompatActivity
-import kotlinx.android.synthetic.main.activity_main.bottom_navigation
-import kotlinx.android.synthetic.main.activity_main.view_pager
+import kotlinx.android.synthetic.main.activity_main.*
 import me.hackathon.monicercustomerapp.R
 import me.hackathon.monicercustomerapp.ui.main.payment.PaymentFragment
 import me.hackathon.monicercustomerapp.ui.main.profile.ProfileFragment
@@ -18,20 +17,17 @@ class MainActivity : DaggerAppCompatActivity(), ViewPager.OnPageChangeListener {
 
     @Inject
     lateinit var viewModelFactory: CustomViewModelFactory
-    lateinit var viewModel: MainViewModel
-    lateinit var adapter: ViewPagerAdapter
+    lateinit var viewModel: MainActivityViewModel
+    private lateinit var adapter: ViewPagerAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         initViewPager()
         initBottomNavigationView()
     }
 
-    private fun initBottomNavigationView() {
-
-    }
+    private fun initBottomNavigationView() {}
 
     private fun initViewPager() {
         adapter = ViewPagerAdapter(supportFragmentManager)
@@ -59,18 +55,14 @@ class MainActivity : DaggerAppCompatActivity(), ViewPager.OnPageChangeListener {
     }
 
     override fun onPageScrollStateChanged(state: Int) {
-
     }
 
     override fun onPageScrolled(
-        position: Int,
-        positionOffset: Float,
-        positionOffsetPixels: Int
+            position: Int,
+            positionOffset: Float,
+            positionOffsetPixels: Int
     ) {
-
     }
 
-    override fun onPageSelected(position: Int) {
-
-    }
+    override fun onPageSelected(position: Int) {}
 }
