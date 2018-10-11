@@ -91,9 +91,13 @@ dependencies {
     implementation "com.airbnb.android:lottie:$lottie_version"
 
     // QRGen
-    implementation "com.github.kenglxn.QRGen:android:$qrgen_version"
+    implementation "com.github.kenglxn.QRGen:android:$qrGen_version"
+
+    // Sliding Up Panel
+    implementation "com.sothree.slidinguppanel:library:$slidingUpPanel_version"
+
+    // Google Vision
+    implementation "com.google.android.gms:play-services-vision:$googleVision_version"
 
     implementation 'com.squareup.okhttp3:logging-interceptor:3.9.1'
-
-    implementation 'com.sothree.slidinguppanel:library:3.4.0'
 }

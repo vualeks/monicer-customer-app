@@ -2,30 +2,50 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/pay_root"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:layout_editor_absoluteY="25dp">
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/appCompatButton"
-        style="@style/ButtonPayment"
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/pay_qr_code"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="42dp"
-        android:layout_marginEnd="24dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="49dp"
+        android:layout_marginTop="41dp"
+        android:layout_marginEnd="49dp"
+        app:layout_constraintBottom_toTopOf="@+id/pay_credit"
+        app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_chainStyle="packed" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        style="@style/ButtonPayment"
-        android:layout_width="0dp"
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/pay_credit"
+        style="@style/TextViewTitle"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginBottom="4dp"
+        android:text="@string/pay_with_credit"
+        app:layout_constraintBottom_toTopOf="@+id/appCompatTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pay_qr_code" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/appCompatTextView"
+        style="@style/TextViewDescription"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginEnd="64dp"
+        android:text="@string/pay_credit_description"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appCompatButton" />
-
+        app:layout_constraintTop_toBottomOf="@+id/pay_credit" />
 </androidx.constraintlayout.widget.ConstraintLayout>

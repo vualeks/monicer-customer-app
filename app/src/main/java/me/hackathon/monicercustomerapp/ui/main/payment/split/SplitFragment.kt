@@ -1,13 +1,16 @@
 package me.hackathon.monicercustomerapp.ui.main.payment.split
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProviders
 import dagger.android.support.DaggerFragment
+import kotlinx.android.synthetic.main.fragment_split.*
 import me.hackathon.monicercustomerapp.R
 import me.hackathon.monicercustomerapp.ui.main.payment.PaymentFragmentViewModel
+import me.hackathon.monicercustomerapp.ui.scan.ScanActivity
 import me.hackathon.monicercustomerapp.util.CustomViewModelFactory
 import javax.inject.Inject
 
@@ -21,7 +24,10 @@ class SplitFragment : DaggerFragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        viewModel = ViewModelProviders.of(this, viewModelFactory).get(PaymentFragmentViewModel::class.java)
         super.onViewCreated(view, savedInstanceState)
+        viewModel = ViewModelProviders.of(this, viewModelFactory).get(PaymentFragmentViewModel::class.java)
+        split_join.setOnClickListener {
+            startActivity(Intent(context, ScanActivity::class.java))
+        }
     }
 }

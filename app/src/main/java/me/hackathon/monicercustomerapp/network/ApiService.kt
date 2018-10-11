@@ -1,12 +1,10 @@
 package me.hackathon.monicercustomerapp.network
 
 import androidx.lifecycle.LiveData
-import me.hackathon.monicercustomerapp.vo.ApiResponse
-import me.hackathon.monicercustomerapp.vo.AuthenticationRequest
-import me.hackathon.monicercustomerapp.vo.AuthenticationResponse
-import me.hackathon.monicercustomerapp.vo.TransactionResponse
-import me.hackathon.monicercustomerapp.vo.Wallet
-import retrofit2.http.*
+import me.hackathon.monicercustomerapp.vo.*
+import retrofit2.http.Body
+import retrofit2.http.GET
+import retrofit2.http.POST
 
 interface ApiService {
     @POST("api/auth/token")
@@ -15,5 +13,8 @@ interface ApiService {
 
     @GET("api/wallet")
     fun getMyWallet():
-        LiveData<ApiResponse<TransactionResponse>>
+            LiveData<ApiResponse<TransactionResponse>>
+
+    @GET("api/me")
+    fun getUser(): LiveData<ApiResponse<User>>
 }

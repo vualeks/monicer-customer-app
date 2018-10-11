@@ -29,9 +29,9 @@
     <style name="ButtonPayment">
         <item name="android:textColor">@color/colorLightText</item>
         <item name="android:background">@drawable/payment_button_background</item>
-        <item name="android:textSize">16sp</item>
-        <item name="android:paddingTop">12dp</item>
-        <item name="android:paddingBottom">11dp</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:paddingTop">72dp</item>
+        <item name="android:paddingBottom">21dp</item>
         <item name="android:fontFamily">@font/calluna_sans_bold</item>
     </style>
 
