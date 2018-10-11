@@ -31,9 +31,9 @@ class LockableRecyclerView : RecyclerView {
   }
 
   override fun onTouchEvent(ev: MotionEvent): Boolean {
-    if (ev.action == MotionEvent.ACTION_UP) {
-      slideLayout!!.onTouchEvent(ev)
-    }
+//    if (ev.action == MotionEvent.ACTION_UP) {
+//      slideLayout!!.onTouchEvent(ev)
+//    }
     when (ev.action) {
       MotionEvent.ACTION_DOWN ->
         // if we can scroll pass the event to the superclass

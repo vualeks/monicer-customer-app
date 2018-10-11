@@ -2,6 +2,7 @@ package me.hackathon.monicercustomerapp.vo
 
 import com.google.gson.annotations.SerializedName
 import com.google.gson.annotations.Expose
+import java.util.Locale
 
 data class Wallet(
 
@@ -50,6 +51,9 @@ class Transaction {
         @Expose
         var created_at: String? = null
 
+        fun getAmountPretty(): String{
+                return String.format(Locale.ITALIAN, "%.2f", amount)
+        }
 }
 
 class TransactionResponse {

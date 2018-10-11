@@ -98,19 +98,14 @@
         android:layout_height="wrap_content"
         android:clickable="true"
         android:focusable="true"
+        android:background="@drawable/transactions_rounded"
         android:focusableInTouchMode="true"
         android:orientation="vertical"
-        android:clipChildren="false"
-        android:clipToPadding="false"
         >
         <me.hackathon.monicercustomerapp.util.LockableRecyclerView
-            android:id="@+id/transactions_dragView"
+            android:id="@+id/transactions_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#ffffff"
-            android:fillViewport="true"
-            android:clipChildren="false"
-            android:clipToPadding="false"
             >
         </me.hackathon.monicercustomerapp.util.LockableRecyclerView>
     </RelativeLayout>
