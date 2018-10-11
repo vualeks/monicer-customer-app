@@ -1,5 +1,6 @@
 package me.hackathon.monicercustomerapp.ui.main.wallet
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -60,14 +61,15 @@ class WalletFragment : DaggerFragment(), SlidingUpPanelLayout.PanelSlideListener
         })
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onResume() {
         super.onResume()
 
         loading.visibility = View.VISIBLE
         viewModel.getMyWallet().observe(this, Observer {
             loading.visibility = GONE
-            balance.text = String.format(Locale.ITALIAN, "%.2f", it.body?.wallet?.balance)
-            cashback.text = String.format(Locale.ITALIAN, "%.2f", it.body?.saved_money)
+            balance.text = String.format(Locale.ITALIAN, "%.2f", it.body?.wallet?.balance) + "€"
+            cashback.text = String.format(Locale.ITALIAN, "%.2f", it.body?.saved_money) + "€"
 
             adapter = TransactionsAdapter(it.body?.transactions!!)
             transactions_list.adapter = adapter

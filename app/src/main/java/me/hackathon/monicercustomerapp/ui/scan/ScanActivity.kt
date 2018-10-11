@@ -11,14 +11,22 @@ import android.hardware.Camera
 import android.os.Build
 import android.os.Bundle
 import android.util.DisplayMetrics
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
-import com.google.android.gms.vision.CameraSource
+import com.google.android.gms.common.ConnectionResult
+import com.google.android.gms.common.GoogleApiAvailability
+import com.google.android.gms.vision.MultiProcessor
 import com.google.android.gms.vision.barcode.Barcode
+import com.google.android.gms.vision.barcode.BarcodeDetector
 import dagger.android.support.DaggerAppCompatActivity
+import kotlinx.android.synthetic.main.activity_scan.flash
+import kotlinx.android.synthetic.main.activity_scan.preview
 import me.hackathon.monicercustomerapp.R
 import me.hackathon.monicercustomerapp.ui.scan.scanUtil.BarcodeTracker
+import me.hackathon.monicercustomerapp.ui.scan.scanUtil.BarcodeTrackerFactory
+import me.hackathon.monicercustomerapp.ui.scan.scanUtil.CameraSource
 import java.io.IOException
 
 class ScanActivity : DaggerAppCompatActivity(), BarcodeTracker.BarcodeGraphicTrackerCallback {
@@ -86,10 +94,10 @@ class ScanActivity : DaggerAppCompatActivity(), BarcodeTracker.BarcodeGraphicTra
             val lowstorageFilter = IntentFilter(Intent.ACTION_DEVICE_STORAGE_LOW)
             val hasLowStorage = registerReceiver(null, lowstorageFilter) != null
 
-            if (hasLowStorage) {
-                Toast.makeText(this, getString(string.not_enough_memory), Toast.LENGTH_LONG)
-                        .show()
-            }
+//            if (hasLowStorage) {
+//                Toast.makeText(this, getString(R.string.not_enough_memory), Toast.LENGTH_LONG)
+//                        .show()
+//            }
         }
 
         // Creates and starts the camera.  Note that this uses a higher resolution in comparison
@@ -145,20 +153,20 @@ class ScanActivity : DaggerAppCompatActivity(), BarcodeTracker.BarcodeGraphicTra
         val listener = { dialog: DialogInterface, id: Int  -> finish() }
 
         val builder = AlertDialog.Builder(this)
-        builder.setTitle(getString(string.error))
-                .setMessage(getString(string.allow_camera_error))
+        builder.setTitle(getString(R.string.error))
+                .setMessage(getString(R.string.allow_camera_error))
                 .setPositiveButton("OK", listener)
                 .show()
     }
 
     // Restarts the camera
-    protected override fun onResume() {
+    override fun onResume() {
         super.onResume()
         startCameraSource()
     }
 
     // Stops the camera
-    protected override fun onPause() {
+     override fun onPause() {
         super.onPause()
         if (preview != null) {
             preview.stop()
@@ -169,7 +177,7 @@ class ScanActivity : DaggerAppCompatActivity(), BarcodeTracker.BarcodeGraphicTra
      * Releases the resources associated with the camera source, the associated detectors, and the
      * rest of the processing pipeline.
      */
-    protected override fun onDestroy() {
+     override fun onDestroy() {
         super.onDestroy()
         if (preview != null) {
             preview.release()
@@ -197,11 +205,12 @@ class ScanActivity : DaggerAppCompatActivity(), BarcodeTracker.BarcodeGraphicTra
     }
 
     override fun onDetectedQrCode(barcode: Barcode) {
-        if (barcode.displayValue.length != 32) toast("Wrong code")
-        else {
-            startPaymentActivity(barcode.displayValue)
-            finish()
-        }
+//        if (barcode.displayValue.length != 32) toast("Wrong code")
+//        else {
+//            startPaymentActivity(barcode.displayValue)
+//            finish()
+//        }
+        Log.d("TAG", barcode.displayValue)
     }
 }
 

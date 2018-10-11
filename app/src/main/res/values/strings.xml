@@ -12,4 +12,12 @@
   <string name="balance">Balance</string>
   <string name="cashback">Cashback</string>
   <string name="amount">Amount</string>
+  <string name="scan_qr_code">Scan QR code</string>
+  <string name="error">Error</string>
+  <string name="allow_camera_error">Please allow access to camera device</string>
+  <string name="paying_with_credit">Pay with credit Let the cashier scan this code when paying with credit</string>
+  <string name="host_bill">Host bill</string>
+  <string name="join_bill">Join bill</string>
+  <string name="split_bill">Split bill</string>
+  <string name="split_bill_desc">Split bill so everyone can pay for their part</string>
 </resources>

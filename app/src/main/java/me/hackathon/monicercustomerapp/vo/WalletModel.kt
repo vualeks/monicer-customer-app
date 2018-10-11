@@ -52,7 +52,7 @@ class Transaction {
         var created_at: String? = null
 
         fun getAmountPretty(): String{
-                return String.format(Locale.ITALIAN, "%.2f", amount)
+                return String.format(Locale.ITALIAN, "%.2f", amount) + "€"
         }
 }
 
