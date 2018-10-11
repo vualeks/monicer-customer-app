@@ -1,13 +1,19 @@
 package me.hackathon.monicercustomerapp.ui.login
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.EditorInfo
+import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import com.google.android.material.snackbar.Snackbar
 import dagger.android.support.DaggerAppCompatActivity
 import kotlinx.android.synthetic.main.activity_login.*
 import me.hackathon.monicercustomerapp.BuildConfig
 import me.hackathon.monicercustomerapp.R
+import me.hackathon.monicercustomerapp.databinding.ActivityLoginBinding
+import me.hackathon.monicercustomerapp.ui.main.MainActivity
 import me.hackathon.monicercustomerapp.util.CustomViewModelFactory
 import me.hackathon.monicercustomerapp.util.hideKeyboard
 import javax.inject.Inject
@@ -19,11 +25,14 @@ class LoginActivity : DaggerAppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        val binding: ActivityLoginBinding = DataBindingUtil.setContentView(this, R.layout.activity_login)
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(LoginViewModel::class.java)
+        binding.viewModel = viewModel
 
         @Suppress("ConstantConditionIf")
         if (BuildConfig.BUILD_TYPE == "debug") {
+            viewModel.email.set(resources.getString(R.string.test_username))
+            viewModel.password.set(resources.getString(R.string.test_password))
         }
 
         val hideKeyboardListener =
@@ -42,6 +51,17 @@ class LoginActivity : DaggerAppCompatActivity() {
                 handled = true
             }
             handled
+        }
+
+        login_button.setOnClickListener { loginButton ->
+            loginButton.isEnabled = false
+            viewModel.authenticate().observe(this, Observer { authResponse ->
+                if (authResponse.isSuccessful) {
+                    viewModel.initUser(authResponse.body!!)
+                    startActivity(Intent(this, MainActivity::class.java))
+                    supportFinishAfterTransition()
+                } else Snackbar.make(login_root, authResponse.errorMessage, Snackbar.LENGTH_LONG)
+            })
         }
     }
 }

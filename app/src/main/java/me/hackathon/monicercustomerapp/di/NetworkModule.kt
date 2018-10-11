@@ -4,12 +4,13 @@ import android.annotation.SuppressLint
 import android.app.Application
 import dagger.Module
 import dagger.Provides
-import me.hackathon.monicercustomerapp.network.LiveDataCallAdapterFactory
 import me.hackathon.monicercustomerapp.network.ApiService
+import me.hackathon.monicercustomerapp.network.LiveDataCallAdapterFactory
 import me.hackathon.monicercustomerapp.network.TokenHeaderInterceptor
 import me.hackathon.monicercustomerapp.util.Constants.BASE_URL
 import okhttp3.Cache
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.scalars.ScalarsConverterFactory
@@ -56,7 +57,11 @@ class NetworkModule {
         sslContext.init(null, arrayOf(allowAllTrustManagers), SecureRandom())
         val sslSocketFactory = sslContext.socketFactory
 
+        val logging = HttpLoggingInterceptor()
+        logging.level = HttpLoggingInterceptor.Level.BODY
+
         return OkHttpClient.Builder()
+                .addInterceptor(logging)
                 .addInterceptor(authenticationInterceptor)
                 .readTimeout(60, TimeUnit.SECONDS)
                 .writeTimeout(60, TimeUnit.SECONDS)

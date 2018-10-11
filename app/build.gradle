@@ -34,8 +34,8 @@ android {
             minifyEnabled false
             applicationIdSuffix ".debug"
             resValue "string", "app_name", "Monicer"
-            resValue "string", "test_username", ""
-            resValue "string", "test_password", ""
+            resValue "string", "test_username", "vladimir.bigovic@omnired.eu"
+            resValue "string", "test_password", "123456"
         }
     }
     dataBinding {
@@ -89,4 +89,6 @@ dependencies {
 
     // Lottie
     implementation "com.airbnb.android:lottie:$lottie_version"
+
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.9.1'
 }

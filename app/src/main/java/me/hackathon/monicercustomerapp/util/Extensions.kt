@@ -43,12 +43,12 @@ fun PopupWindow.dimBackground() {
     wm.updateViewLayout(container, lp)
 }
 
-fun AppCompatActivity.startFragment(fragment: DaggerFragment) {
+/*fun AppCompatActivity.startFragment(fragment: DaggerFragment) {
     supportFragmentManager.beginTransaction()
             .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
             .replace(R.id.fragment_container, fragment)
             .commit()
-}
+}*/
 
 fun View.hideKeyboard() {
     val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
