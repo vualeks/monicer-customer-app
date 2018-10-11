@@ -36,6 +36,7 @@ class MainActivity : DaggerAppCompatActivity(), ViewPager.OnPageChangeListener {
         adapter.addFragment(ShopsFragment())
         adapter.addFragment(ProfileFragment())
 
+        view_pager.offscreenPageLimit = 4
         view_pager.adapter = adapter
         view_pager.addOnPageChangeListener(this)
         bottom_navigation.setOnNavigationItemSelectedListener {

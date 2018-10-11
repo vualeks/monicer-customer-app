@@ -6,10 +6,13 @@ data class Owner(
 
         @SerializedName("id")
         var id: Int,
+
         @SerializedName("name")
         var name: String,
+
         @SerializedName("email")
         var email: String,
+
         @SerializedName("pay_code")
         var pay_code: String
 )

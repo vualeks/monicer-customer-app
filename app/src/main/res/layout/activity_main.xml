@@ -27,6 +27,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:elevation="12dp"
+        app:itemTextAppearanceActive="@style/MenuItem"
+        app:itemTextAppearanceInactive="@style/MenuItem"
         app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

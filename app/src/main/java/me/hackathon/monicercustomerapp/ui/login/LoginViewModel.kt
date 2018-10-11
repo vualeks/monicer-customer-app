@@ -4,6 +4,7 @@ import androidx.databinding.ObservableField
 import androidx.lifecycle.ViewModel
 import me.hackathon.monicercustomerapp.network.ApiService
 import me.hackathon.monicercustomerapp.network.TokenHeaderInterceptor
+import me.hackathon.monicercustomerapp.util.Constants.CURRENT_USER
 import me.hackathon.monicercustomerapp.vo.AuthenticationRequest
 import me.hackathon.monicercustomerapp.vo.AuthenticationResponse
 import javax.inject.Inject
@@ -15,10 +16,10 @@ class LoginViewModel @Inject constructor(
     var email = ObservableField("")
     var password = ObservableField("")
 
-
     fun authenticate() = api.authenticate(AuthenticationRequest(email.get()!!, password.get()!!))
 
     fun initUser(authResponse: AuthenticationResponse) {
-        tokenHeaderInterceptor.token = authResponse.accessToken!!
+        tokenHeaderInterceptor.token = authResponse.accessToken
+        CURRENT_USER = authResponse.user
     }
 }

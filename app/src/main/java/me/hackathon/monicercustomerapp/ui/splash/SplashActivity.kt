@@ -12,5 +12,6 @@ class SplashActivity : DaggerAppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
         startActivity(Intent(this, LoginActivity::class.java))
+        supportFinishAfterTransition()
     }
 }

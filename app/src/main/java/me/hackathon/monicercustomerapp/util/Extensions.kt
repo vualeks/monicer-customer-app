@@ -90,3 +90,10 @@ fun Activity.screenHeight(): Int {
     windowManager.defaultDisplay.getMetrics(metrics)
     return metrics.heightPixels
 }
+
+fun AppCompatActivity.startFragment(fragment: DaggerFragment) {
+    supportFragmentManager.beginTransaction()
+            .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+            .replace(R.id.view_pager, fragment)
+            .commit()
+}
