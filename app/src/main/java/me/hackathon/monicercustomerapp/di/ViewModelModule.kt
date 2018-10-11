@@ -6,7 +6,7 @@ import dagger.MapKey
 import dagger.Module
 import dagger.multibindings.IntoMap
 import me.hackathon.monicercustomerapp.ui.login.LoginViewModel
-import me.hackathon.monicercustomerapp.ui.main.MainViewModel
+import me.hackathon.monicercustomerapp.ui.main.MainActivityViewModel
 import me.hackathon.monicercustomerapp.ui.main.payment.PaymentFragmentViewModel
 import me.hackathon.monicercustomerapp.ui.main.profile.ProfileFragmentViewModel
 import me.hackathon.monicercustomerapp.ui.main.shops.ShopsFragmentViewModel
@@ -26,8 +26,8 @@ abstract class ViewModelModule {
 
     @Binds
     @IntoMap
-    @ViewModelKey(MainViewModel::class)
-    abstract fun bindMainViewModel(mainViewModel: MainViewModel): ViewModel
+    @ViewModelKey(MainActivityViewModel::class)
+    abstract fun bindMainViewModel(mainViewModel: MainActivityViewModel): ViewModel
 
     @Binds
     @IntoMap

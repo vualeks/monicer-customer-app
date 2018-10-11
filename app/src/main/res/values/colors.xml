@@ -8,4 +8,5 @@
     <color name="colorLoginInputBackground">#4DFFFFFF</color>
     <color name="colorLoginInputBackgroundActive">#CCFFFFFF</color>
     <color name="colorLightText">#FFFFFF</color>
+    <color name="colorDarkText">#888888</color>
 </resources>

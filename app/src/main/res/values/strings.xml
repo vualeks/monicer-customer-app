@@ -6,4 +6,7 @@
     <string name="wallet">Wallet</string>
     <string name="shops">Shops</string>
     <string name="profile">Profile</string>
+    <string name="pay_with_credit">Pay with credit</string>
+    <string name="pay_with_cash">Pay with cash</string>
+    <string name="cash_payment_description">Pay with cash Let the cashier scan this code when paying with cash</string>
 </resources>

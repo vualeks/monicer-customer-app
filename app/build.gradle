@@ -90,5 +90,8 @@ dependencies {
     // Lottie
     implementation "com.airbnb.android:lottie:$lottie_version"
 
+    // QRGen
+    implementation "com.github.kenglxn.QRGen:android:$qrgen_version"
+
     implementation 'com.squareup.okhttp3:logging-interceptor:3.9.1'
 }
