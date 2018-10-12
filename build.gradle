@@ -21,6 +21,7 @@ ext {
     qrGen_version = "2.5.0"
     slidingUpPanel_version = "3.4.0"
     googleVision_version = "16.2.0"
+    anko_version='0.10.7'
 }
 
 allprojects {

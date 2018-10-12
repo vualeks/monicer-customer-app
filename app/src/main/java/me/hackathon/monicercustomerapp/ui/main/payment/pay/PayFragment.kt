@@ -10,6 +10,7 @@ import dagger.android.support.DaggerFragment
 import kotlinx.android.synthetic.main.fragment_pay.*
 import me.hackathon.monicercustomerapp.R
 import me.hackathon.monicercustomerapp.ui.main.payment.PaymentFragmentViewModel
+import me.hackathon.monicercustomerapp.util.Constants
 import me.hackathon.monicercustomerapp.util.CustomViewModelFactory
 import net.glxn.qrgen.android.QRCode
 import javax.inject.Inject
@@ -30,6 +31,10 @@ class PayFragment : DaggerFragment() {
         viewModel.getUser().observe(this, Observer { user ->
             if (user.isSuccessful)
                 pay_qr_code.setImageBitmap(QRCode.from(user.body?.payCode).bitmap())
+        })
+
+        Constants.payCodeLiveData.observe(viewLifecycleOwner, Observer {
+            pay_qr_code.setImageBitmap(QRCode.from(it).bitmap())
         })
     }
 }

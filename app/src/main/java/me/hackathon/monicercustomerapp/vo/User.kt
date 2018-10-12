@@ -8,7 +8,7 @@ data class User(
         val wallet: Wallet,
 
         @SerializedName("pay_code")
-        val payCode: String,
+        var payCode: String,
 
         @SerializedName("name")
         val name: String,

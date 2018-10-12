@@ -28,6 +28,7 @@ class TransactionEntity {
         @Expose
         var cash_back_percent: Int? = null
 
+
 }
 
 class Transaction {

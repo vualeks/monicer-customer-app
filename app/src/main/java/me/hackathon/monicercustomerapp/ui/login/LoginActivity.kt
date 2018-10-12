@@ -2,6 +2,7 @@ package me.hackathon.monicercustomerapp.ui.login
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import androidx.databinding.DataBindingUtil
@@ -17,6 +18,12 @@ import me.hackathon.monicercustomerapp.ui.main.MainActivity
 import me.hackathon.monicercustomerapp.util.CustomViewModelFactory
 import me.hackathon.monicercustomerapp.util.hideKeyboard
 import javax.inject.Inject
+import com.pusher.client.channel.SubscriptionEventListener
+import com.pusher.client.Pusher
+import com.pusher.client.PusherOptions
+import org.jetbrains.anko.alert
+import org.jetbrains.anko.cancelButton
+import org.jetbrains.anko.noButton
 
 class LoginActivity : DaggerAppCompatActivity() {
     @Inject
